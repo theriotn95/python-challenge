@@ -58,16 +58,15 @@ print("-------------------------")
 
 #Got the results now time to write them to a txt file 
 
-with open ('Election_Results.txt', 'w') as text:
-    text.write("-------------------------\n")
+with open ('poll_results.txt', 'w') as text:
     text.write("Election Results\n")
     text.write("-------------------------\n")
-    text.write("Total Votes: " + str(votes))
+    text.write("Total Votes: " + str(votes) + "\n")
     text.write("-------------------------\n")
-    for v in range(len(candidate_names)):
+    for v in range(len(set(candidate_names))):
         text.write(candidate_names[v] + ":" + str(percent_won[v]) + "% (" + str(candidate_votes[v])+ ")\n")
     text.write("-------------------------\n")
-    text.write("The winner is: " + winner + "\n")
+    text.write("The winner is:" + winner + "\n")
     text.write("-------------------------\n")   
 
 
