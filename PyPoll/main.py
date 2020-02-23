@@ -29,7 +29,7 @@ with open(csv_PyPoll, newline="") as csvfile:
         votes = votes + 1
         # set candidate names to candidates
         candidates.append(row[2])
-    #Now to get indivdual candiate names create a set from our Candidates List
+    #Now to get indivdual candidate names create a set from our Candidates List
     for a in set(candidates):
         candidate_names.append(a)
         # get the total number of votes per candidate with b
@@ -39,7 +39,7 @@ with open(csv_PyPoll, newline="") as csvfile:
         c = (b/votes)*100
         percent_won.append(c)
 
-#Prepare to print to temrinal and determine the winner
+#Prepare to print to terminal and determine the winner
 
 winner_vote_count = max(candidate_votes)
 winner = candidate_names[candidate_votes.index(winner_vote_count)]
@@ -51,12 +51,24 @@ print("-------------------------")
 print("Total Votes: " + str(votes))
 print("-------------------------")
 for v in range(len(candidate_names)):
-            print(candidate_names[v] + ":" + str(percent_won[v]) +"% (" + str(candidate_votes[v])+ ")")
+            print(candidate_names[v] + ":" + str(percent_won[v]) + "% (" + str(candidate_votes[v])+ ")")
 print("-------------------------")
 print("The winner is: " + winner)
 print("-------------------------")
 
+#Got the results now time to write them to a txt file 
 
+with open ('Election_Results.txt', 'w') as text:
+    text.write("-------------------------\n")
+    text.write("Election Results\n")
+    text.write("-------------------------\n")
+    text.write("Total Votes: " + str(votes))
+    text.write("-------------------------\n")
+    for v in range(len(candidate_names)):
+        text.write(candidate_names[v] + ":" + str(percent_won[v]) + "% (" + str(candidate_votes[v])+ ")\n")
+    text.write("-------------------------\n")
+    text.write("The winner is: " + winner + "\n")
+    text.write("-------------------------\n")   
 
 
 
