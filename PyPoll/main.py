@@ -51,22 +51,22 @@ print("-------------------------")
 print("Total Votes: " + str(votes))
 print("-------------------------")
 for v in range(len(candidate_names)):
-            print(candidate_names[v] + ":" + str(percent_won[v]) + "% (" + str(candidate_votes[v])+ ")")
+            print(candidate_names[v] + ": " + str(percent_won[v]) + "% (" + str(candidate_votes[v])+ ")")
 print("-------------------------")
-print("The winner is: " + winner)
+print("Winner: " + winner)
 print("-------------------------")
 
 #Got the results now time to write them to a txt file 
 
-with open ('poll_results.txt', 'w') as text:
+with open ('PyPoll_results.txt', 'w') as text:
     text.write("Election Results\n")
     text.write("-------------------------\n")
     text.write("Total Votes: " + str(votes) + "\n")
     text.write("-------------------------\n")
     for v in range(len(set(candidate_names))):
-        text.write(candidate_names[v] + ":" + str(percent_won[v]) + "% (" + str(candidate_votes[v])+ ")\n")
+        text.write(candidate_names[v] + ": " + str(percent_won[v]) + "% (" + str(candidate_votes[v])+ ")\n")
     text.write("-------------------------\n")
-    text.write("The winner is:" + winner + "\n")
+    text.write("Winner: " + winner + "\n")
     text.write("-------------------------\n")   
 
 
